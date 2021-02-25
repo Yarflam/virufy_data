@@ -1,0 +1,15 @@
+{
+    "presets": ["@babel/env", "@babel/react"],
+    "plugins": [
+        [
+            "babel-plugin-inline-import",
+            {
+                "extensions": [".txt"]
+            }
+        ],
+        "@babel/transform-runtime",
+        "babel-plugin-module-resolver",
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-object-rest-spread"
+    ]
+}
