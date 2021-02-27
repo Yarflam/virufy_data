@@ -7,7 +7,7 @@ import time
 # Human test
 def main ():
     # Original Dataset
-    dts = "./clinical/original"
+    dts = "../clinical/original"
     neg = ls("%s/neg" % dts)
     pos = ls("%s/pos" % dts)
     data = neg + pos
