@@ -1,0 +1,14 @@
+IDEAS
+https://blog.wolfram.com/2021/02/10/classifying-cough-sounds-to-predict-covid-19-diagnosis/
+https://medium.com/swlh/a-journey-to-speech-recognition-using-tensorflow-1fc1169fef99
+https://youtu.be/p5glHn5Nlo0?t=128
+
+CODES
+https://www.tensorflow.org/io/tutorials/audio
+https://matplotlib.org/devdocs/gallery/subplots_axes_and_figures/subplots_demo.html
+
+LEARNING
+1. data = { rand(Positive[] Strings), rand(Negative[] String) } -> (2,?)
+2. data = Spectogram(AudioTensor(data)) --> (2,?,150,513)
+3. data = mix(data) --> (?,2,150,513)
+4. train, valid = tvs(data) --> (80%,2,150,513), (20%,2,150,513)

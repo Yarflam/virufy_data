@@ -1,8 +1,9 @@
 #!/bin/python3
 from playsound import playsound
-from utils import ls
 import random
 import time
+
+from utils import ls
 
 # Human test
 def main ():

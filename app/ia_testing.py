@@ -1,7 +1,8 @@
 #!/bin/python3
 from http.server import BaseHTTPRequestHandler, HTTPServer
-from utils import webcache, webshow
 import configparser
+
+from utils import webcache, webshow
 
 # Config file
 config = configparser.ConfigParser()

@@ -1,12 +1,14 @@
 #!/bin/python3
-from utils import getDataset, getAudioTensors
 import matplotlib.pyplot as plt
 import tensorflow_io as tfio
 import tensorflow as tf
+import numpy as np
+
+from utils import getDataset, getAudioTensors
 
 def spectrogram(audio_tensor):
-    sp = tfio.experimental.audio.spectrogram(audio_tensor, nfft=512, window=512, stride=256)
-    return tf.math.log(sp)
+    sp = tfio.experimental.audio.spectrogram(audio_tensor, nfft=1024, window=1024, stride=256)
+    return tf.math.log(sp)[0:150]
 
 # Application
 if __name__ == "__main__":
@@ -15,9 +17,5 @@ if __name__ == "__main__":
     neg = getAudioTensors(neg)
     pos = getAudioTensors(pos)
     # Show
-    fig, axs = plt.subplots(2, 2)
-    axs[0, 0].plot(spectrogram(neg[0]))
-    axs[0, 1].plot(spectrogram(pos[0])) # n0, p0
-    axs[1, 0].plot(spectrogram(neg[1]))
-    axs[1, 1].plot(spectrogram(pos[1])) # n1, p1
+    plt.imshow(spectrogram(pos[0]).numpy())
     plt.show()
