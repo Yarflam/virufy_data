@@ -1,6 +1,8 @@
 IDEAS
 https://blog.wolfram.com/2021/02/10/classifying-cough-sounds-to-predict-covid-19-diagnosis/
 https://medium.com/swlh/a-journey-to-speech-recognition-using-tensorflow-1fc1169fef99
+https://towardsdatascience.com/understanding-rnn-and-lstm-f7cdf6dfc14e
+https://www.youtube.com/watch?v=BSpXCRTOLJA
 https://youtu.be/p5glHn5Nlo0?t=128
 
 CODES
@@ -8,7 +10,15 @@ https://www.tensorflow.org/io/tutorials/audio
 https://matplotlib.org/devdocs/gallery/subplots_axes_and_figures/subplots_demo.html
 
 LEARNING
-1. data = { rand(Positive[] Strings), rand(Negative[] String) } -> (2,?)
-2. data = Spectogram(AudioTensor(data)) --> (2,?,150,513)
-3. data = mix(data) --> (?,2,150,513)
-4. train, valid = tvs(data) --> (80%,2,150,513), (20%,2,150,513)
+a1. data = { Randomize(Positive[] Strings), Randomize(Negative[] String) } -> (2,?)
+a2. data = Spectogram(AudioTensor(data)) --> (2,?,150,128)
+a3. data = mix(data) --> (?,2,150,128)
+a4. train, valid = tvs(data) --> (80%,2,150,128), (20%,2,150,128)
+a5. Randomize(train); Randomize(valid)
+a6. x_train, y_train = xy(train); x_valid, y_valid = xy(valid)
+b1. LSTM Layer1 (128) + dropout 0.2
+b2. LSTM Layer2 (128) + dropout 0.2
+b3. Dense Layer1 (32) + dropout 0.2
+b4. Dense Layer2 (2)
+b5. optimizer=Adam Optimizer, loss=Binary CrossEntropy
+c1. Epochs ?

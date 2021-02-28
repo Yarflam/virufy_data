@@ -8,7 +8,9 @@ from utils import getDataset, getAudioTensors
 
 def spectrogram(audio_tensor):
     sp = tfio.experimental.audio.spectrogram(audio_tensor, nfft=1024, window=1024, stride=256)
-    return tf.math.log(sp)[0:150]
+    sp = tfio.experimental.audio.melscale(sp, rate=48000, mels=128, fmin=0, fmax=24000)
+    sp = tf.math.log(sp)
+    return sp[:150]
 
 # Application
 if __name__ == "__main__":
