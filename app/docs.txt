@@ -1,12 +1,15 @@
 IDEAS
 https://blog.wolfram.com/2021/02/10/classifying-cough-sounds-to-predict-covid-19-diagnosis/
 https://medium.com/swlh/a-journey-to-speech-recognition-using-tensorflow-1fc1169fef99
+https://aruno14.medium.com/comparaison-of-audio-representation-in-tensorflow-b6c33a83d77f
 https://towardsdatascience.com/understanding-rnn-and-lstm-f7cdf6dfc14e
 https://www.youtube.com/watch?v=BSpXCRTOLJA
 https://youtu.be/p5glHn5Nlo0?t=128
 
 CODES
 https://www.tensorflow.org/io/tutorials/audio
+https://www.tensorflow.org/api_docs/python/tf/raw_ops/Mfcc
+https://www.tensorflow.org/io/api_docs/python/tfio/experimental/audio/melscale
 https://matplotlib.org/devdocs/gallery/subplots_axes_and_figures/subplots_demo.html
 
 LEARNING

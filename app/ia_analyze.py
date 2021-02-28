@@ -9,15 +9,18 @@ from utils import getDataset, getAudioTensors
 def spectrogram(audio_tensor):
     sp = tfio.experimental.audio.spectrogram(audio_tensor, nfft=1024, window=1024, stride=256)
     sp = tfio.experimental.audio.melscale(sp, rate=48000, mels=128, fmin=0, fmax=24000)
-    sp = tf.math.log(sp)
-    return sp[:150]
+    sp = tf.math.log(sp).numpy()
+    sp[~np.isfinite(sp)] = 0
+    sp[np.isnan(sp)] = 0
+    return sp
 
-# Application
-if __name__ == "__main__":
-    # Load dataset
-    neg, pos = getDataset()
-    neg = getAudioTensors(neg)
-    pos = getAudioTensors(pos)
-    # Show
-    plt.imshow(spectrogram(pos[0]).numpy())
-    plt.show()
+# Load dataset
+neg, pos = getDataset(True)
+neg = getAudioTensors(neg)
+pos = getAudioTensors(pos)
+
+# Show
+test = spectrogram(pos[0])
+print(test.shape)
+plt.imshow(test)
+plt.show()
